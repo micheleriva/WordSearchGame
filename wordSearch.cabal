@@ -1,0 +1,62 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 0b421a27d1e9993550be9c9616d3c776ad15d2a54c033a6dcf4d83e5e0f4253f
+
+name:           wordSearch
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/micheleriva/WordSearchGame#readme>
+homepage:       https://github.com/micheleriva/WordSearchGame#readme
+bug-reports:    https://github.com/micheleriva/WordSearchGame/issues
+author:         Michele Riva
+maintainer:     ciao@micheleriva.it
+copyright:      2018 Michele Riva
+license:        MIT
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/micheleriva/WordSearchGame
+
+library
+  exposed-modules:
+      Data
+      Lib
+  other-modules:
+      Paths_wordSearch
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable words-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_wordSearch
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , wordSearch
+  default-language: Haskell2010
+
+test-suite words-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_wordSearch
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , wordSearch
+  default-language: Haskell2010
