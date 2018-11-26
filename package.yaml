@@ -1,10 +1,10 @@
-name:                words
+name:                wordSearch
 version:             0.1.0.0
-github:              "githubuser/words"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+github:              "micheleriva/WordSearchGame"
+license:             MIT
+author:              "Michele Riva"
+maintainer:          "ciao@micheleriva.it"
+copyright:           "2018 Michele Riva"
 
 extra-source-files:
 - README.md
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/words#readme>
+description:         Please see the README on GitHub at <https://github.com/micheleriva/WordSearchGame#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -34,7 +34,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - words
+    - wordSearch
 
 tests:
   words-test:
@@ -45,4 +45,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - words
+    - wordSearch

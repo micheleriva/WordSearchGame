@@ -1,3 +1,4 @@
 .stack-work/
-words.cabal
+wordSearch.cabal
+word.cabal
 *~
