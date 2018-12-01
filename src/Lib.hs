@@ -63,10 +63,10 @@ skew (l:ls) = l : skew (map indent ls)
   where indent line = Indent : line
 
 findWord :: Grid Cell -> String -> Maybe [Cell]
-findWord grid word = undefined
-  -- let lines = getLines grid
-  --    found = or $ map (findWordInLine word) lines
-  -- in if found then Just word else Nothing
+findWord grid word =
+  let lines = getLines grid
+      foundWords = map (findWordInLine word) lines
+  in catMaybes foundWords
 
 findWords :: Grid Cell -> [String] -> [[Cell]]
 findWords grid words =
@@ -74,4 +74,14 @@ findWords grid words =
   in catMaybes foundWords
 
 findWordInLine :: String -> [Cell] -> Maybe [Cell]
-findWordInLine = undefined --isInfixOf
+findWordInLine word line =
+  let found = findWordInCellLinePrefix [] word line
+  in case found of
+    Nothing -> findWordInLine word (tail line)
+    cs@(Just _) -> cs
+
+findWordInCellLinePrefix :: [Cell] -> String -> [Cell] -> Maybe [Cell]
+findWordInCellLinePrefix acc (x:xs) (c:cs)
+  | x == cell2char c = findWordInCellLinePrefix (c : acc) xs cs
+findWordInCellLinePrefix acc [] _ = Just $ reverse acc
+findWordInCellLinePrefix _ _ _ = Nothing
